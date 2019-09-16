@@ -1,0 +1,27 @@
+<h2>The Villains! 😎</h2>
+
+<div>
+
+  <ul class="villains">
+    <li *ngFor="let villain of villains" (click)="onSelect(villain)" [class.selected]="villain === selectedVillain">
+      <span class="badge">{{villain.id}}</span>
+      <span class="tag-inner"> {{villain.name}} </span>
+      <span class="badge-right">{{villain.superPower}}</span>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="selectedVillain">
+  <h2>{{selectedVillain.name | uppercase}} Details</h2>
+  <div><span>id: </span> {{selectedVillain.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedVillain.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <label>Superpower:
+    <input [(ngModel)]="selectedVillain.superPower" placeholder="power">
+    </label>
+  </div>
+</div>
